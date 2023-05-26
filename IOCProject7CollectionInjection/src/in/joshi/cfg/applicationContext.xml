@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="systemdate" class="java.util.Date" />
+	<bean id="dobDate" class="java.util.Date">
+		<property name="year" value="93" />
+		<property name="month" value="0" />
+		<property name="date" value="14" />
+
+
+	</bean>
+	<bean id="marksinfo" class="in.joshi.bean.MarksInfo">
+		<property name="marks">
+			<array>
+				<value>200</value>
+				<value>95</value>
+				<value>10</value>
+
+
+			</array>
+
+		</property>
+		<property name="date">
+			<array>
+				<ref bean="systemdate" />
+				<ref bean="dobDate" />
+			</array>
+
+
+		</property>
+
+	</bean>
+
+	<bean id="clg" class="in.joshi.bean.College">
+		<property name="nameList">
+			<list>
+
+				<value>Joshi</value>
+				<value>Ganesh</value>
+				<value>Jagan</value>
+				<value>Surya</value>
+				<value>Vamsi</value>
+				<value>100</value>
+			</list>
+		</property>
+		<property name="dateList">
+			<list>
+				<ref bean="systemdate" />
+				<ref bean="dobDate" />
+
+
+			</list>
+
+		</property>
+
+
+	</bean>
+
+	<bean id="contactsinfo" class="in.joshi.bean.ContactInfo">
+		<constructor-arg name="phoneNumbers">
+			<set>
+				<value>5454464445</value>
+				<value>9898989899</value>
+				<value>8888888888</value>
+				<value>7777777777</value>
+				<value>6666666666</value>
+
+
+			</set>
+
+		</constructor-arg>
+
+		<constructor-arg name="dates">
+			<set>
+				<ref bean="systemdate" />
+				<ref bean="dobDate" />
+			</set>
+		</constructor-arg>
+	</bean>
+
+	<bean id="universityinfo" class="in.joshi.bean.UniversityInfo">
+		<property name="facultyDetails">
+			<map key-type="java.lang.Integer" value-type="java.lang.String">
+				<entry>
+					<key>
+						<value>10</value>
+					</key>
+					<value>Sachin</value>
+				</entry>
+				<entry key="18" value="Kohli" />
+				<entry key="20" value="Dhoni" />
+			</map>
+		</property>
+		<property name="dateinfo">
+			<map key-type="java.lang.String" value-type="java.util.Date">
+				<entry>
+					<key>
+						<value>toDay</value>
+					</key>
+					<ref bean="systemdate" />
+				</entry>
+				<entry key="dob" value-ref="dobDate" />
+			</map>
+		</property>
+
+		<property name="properties">
+			<props>
+				<prop key="Java">Joshi</prop>
+				<prop key="JEE">Hyder</prop>
+				<prop key="Spring">NavinReddy</prop>
+				<prop key="SpringBoot">Sathish</prop>
+				<prop key="MicroServices">Nithin</prop>
+
+			</props>
+		</property>
+	</bean>
+</beans>
